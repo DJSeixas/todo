@@ -1,0 +1,29 @@
+
+.lista{
+    border-radius: $b-radius;
+    overflow: hidden;
+    position: absolute;
+    z-index: 10;
+    
+    
+    box-shadow: $box-shadow;
+
+    &__info{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        padding: 1rem 2rem;
+        color: rgba(0, 0, 0, 0.350);
+        font-weight: 700;
+        background-color: $color-white;
+        
+    }
+
+    &__filtro{
+        display: flex;
+        justify-content: space-between;
+        flex: 0 0 40%;
+    }
+
+}

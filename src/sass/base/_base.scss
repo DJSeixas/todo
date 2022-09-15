@@ -1,0 +1,60 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*::after,
+*::before{
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    font-size: 62.5%;
+
+    /* @include respond(tab-land){
+        font-size: 56.25%;
+    }
+
+    @include respond(tab-port){
+        font-size: 50%;
+    }
+
+    @include respond(big-desktop){
+        font-size: 75%;
+    } */
+
+}
+
+#app{
+
+    font-family: 'Josefin Sans', sans-serif;
+
+    background-color: $bg-color-light;
+    line-height: 1.6;
+    box-sizing: border-box;
+    height: 100vh;
+
+    margin-right: auto;
+    
+
+    /* .dark{
+        background-color: $color-input-dark !important;
+        color: $color2 !important;
+    }
+
+    .darkBg{
+        background-color: $bg-color-dark!important;
+        color: $color2 !important;
+    }
+
+    .darkIcon{
+        fill: aliceblue;
+    }
+
+    .darkHover:hover{
+        background-color: $bg-color-dark!important;
+    } */
+}

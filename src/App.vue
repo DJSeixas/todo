@@ -1,28 +1,36 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <TheHeader />
+
+    <div class="content">
+  
+      <TheInput />
+
+      <Lista />
+
+      <p id="text-app">Drag and drop to reorder list</p>
+      
+    </div>
+
+
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import TheHeader from './components/TheHeader.vue'
+import TheInput from './components/TheInput.vue';
+import Lista from './components/Lista.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    TheHeader,
+    TheInput,
+    Lista
+}
 }
 </script>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style src="@/sass/main.scss" lang="scss" scoped>
+
 </style>

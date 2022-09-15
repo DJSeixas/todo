@@ -1,0 +1,23 @@
+.item{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    
+    background-color: $color-white;
+    width: 42rem;
+    padding: 1.2rem 2rem;
+    border-bottom: .1rem solid rgba(0, 0, 0, .1);
+
+    &__title{
+        margin-right: auto;
+        margin-left: 2rem;
+    }
+
+    &__button{
+        width: 2rem;
+        height: 2rem;
+        border-radius: 1rem;
+        border-color: hsl(235, 19%, 35%);
+        background-color: white;
+    }
+}

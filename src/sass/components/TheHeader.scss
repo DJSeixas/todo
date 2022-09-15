@@ -1,0 +1,35 @@
+.header{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 0;
+
+    &__background{
+        flex: 1 0 100%;
+    }
+
+    &__title{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 36%;
+        top: 6rem;
+        position: absolute;
+        z-index: 10;
+
+        color: $color-white;
+        font-size: 2.8rem;
+        font-weight: 700;
+        letter-spacing: 1rem;
+
+        &-icon{
+            width: 2.2rem;
+            height: 2.2rem;        
+        }
+    }
+}
+
+img{
+    width: 100%;
+}
