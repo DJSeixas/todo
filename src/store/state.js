@@ -1,3 +1,6 @@
 export default {
-    tarefas: []
+    tarefas: [],
+    tarefasFiltradas: [],
+    value: 'All',
+    dark: false
 }

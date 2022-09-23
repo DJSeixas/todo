@@ -7,6 +7,15 @@
     width: 42rem;
     padding: 1.2rem 2rem;
     border-bottom: .1rem solid rgba(0, 0, 0, .1);
+    cursor: pointer;
+
+    @include respond(tab-port){
+        width: 36rem;
+    }
+
+    @include respond(phone){
+        width: 22rem;
+    }
 
     &__title{
         margin-right: auto;
@@ -14,10 +23,52 @@
     }
 
     &__button{
-        width: 2rem;
-        height: 2rem;
-        border-radius: 1rem;
-        border-color: hsl(235, 19%, 35%);
-        background-color: white;
+
+        &--concluir{
+            width: 2rem;
+            height: 2rem;
+            border-radius: 1rem;
+            border-color: rgba(0, 0, 0, 0.100);
+            background-color: white;
+            cursor: pointer;
+
+            &:hover{
+                border-color: rgba(9,88,121,0.600);
+            }
+        }
+
+
+        &--delete{
+            width: 2rem;
+            height: 2rem;
+            border-radius: 1rem;
+            border-color: rgba(0, 0, 0, 0);
+            background-color: white;
+            stroke: rgba(0, 0, 0, 0.100); 
+            cursor: pointer;
+            opacity: 0;
+            transition: all .2s;
+
+            @include respond(phone){
+                opacity: 1;
+            }
+
+            &:hover{
+                opacity: 1;
+            }
+        }
     }
+
+}
+
+.concluido{
+        stroke: #fff; 
+        stroke-width: 2;
+        border-color: rgba(9,88,121,0.600);
+        background: linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+}
+
+.titleConcluido{
+    text-decoration: line-through;
+    color: rgba(0, 0, 0, 0.450);;
 }

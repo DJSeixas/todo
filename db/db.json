@@ -1,34 +1,24 @@
 {
-    "tarefas": [
-      {
-        "id": 1,
-        "title": "Complete Javascript Online Course",
-        "concluido": true
-      },
-      {
-        "id": 2,
-        "title": "Complete Vue Course",
-        "concluido": true
-      },
-      {
-        "title": "Complete VueX Course",
-        "concluido": false,
-        "id": 3
-      },
-      {
-        "title": "Complete JavaScript Funcional Course",
-        "concluido": false,
-        "id": 4
-      },
-      {
-        "title": "Complete Vue Router Course",
-        "concluido": false,
-        "id": 5
-      },
-      {
-        "title": "Complete axios Course",
-        "id": 6,
-        "concluido": false
-      }
-    ]
-  }
+  "tarefas": [
+    {
+      "title": "Complete Vue Router Course",
+      "concluido": true,
+      "id": 5
+    },
+    {
+      "title": "Complete axios Course",
+      "concluido": false,
+      "id": 6
+    },
+    {
+      "title": "Complete Vuex Course",
+      "concluido": false,
+      "id": 7
+    },
+    {
+      "title": "Complete Javascript Course",
+      "concluido": false,
+      "id": 8
+    }
+  ]
+}

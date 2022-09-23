@@ -14,7 +14,7 @@
 html{
     font-size: 62.5%;
 
-    /* @include respond(tab-land){
+    @include respond(tab-land){
         font-size: 56.25%;
     }
 
@@ -24,7 +24,7 @@ html{
 
     @include respond(big-desktop){
         font-size: 75%;
-    } */
+    }
 
 }
 
@@ -32,29 +32,34 @@ html{
 
     font-family: 'Josefin Sans', sans-serif;
 
-    background-color: $bg-color-light;
     line-height: 1.6;
     box-sizing: border-box;
-    height: 100vh;
-
-    margin-right: auto;
     
 
-    /* .dark{
-        background-color: $color-input-dark !important;
-        color: $color2 !important;
+    .darkMode{
+        background-color: hsl(234, 11%, 52%) !important;
+        color: $color-white !important;
+    }
+
+    .darkMode2{
+        background-color: hsl(234, 11%, 52%) !important;
+        color: rgba(255, 255, 255, .5);
+    }
+
+    .darkColor1{
+        color: $color-white;
+    }
+
+    .darkColor2{
+        color: rgba(255, 255, 255, .5);
     }
 
     .darkBg{
-        background-color: $bg-color-dark!important;
-        color: $color2 !important;
-    }
-
-    .darkIcon{
-        fill: aliceblue;
+        background-color: $bg-color-dark !important;
+        color: $color-white !important;
     }
 
     .darkHover:hover{
-        background-color: $bg-color-dark!important;
-    } */
+        color: $color-white;
+    }
 }

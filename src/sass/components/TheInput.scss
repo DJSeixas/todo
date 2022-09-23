@@ -2,27 +2,34 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        border-radius: $b-radius;
         
-
+        overflow: hidden;
     &__form{
         
         justify-content: flex-start;
         align-items: center;
         width: 42rem;
         padding: 1.2rem 1.6rem;
+        top: 2;
         background-color: $color-white;
-        top: 12rem;
-        position: absolute;
-        z-index: 10;
         border-radius: $b-radius;
         box-shadow: $box-shadow;
+
+        @include respond(tab-port){
+            width: 36rem;
+        }
+
+        @include respond(phone){
+            width: 22rem;
+        }
     }
 
     &__button{
         width: 2rem;
         height: 2rem;
         border-radius: 1rem;
-        border-color: hsl(235, 19%, 35%);
+        border-color: hsla(0, 0%, 0%, 0.100);
         background-color: white;
     }
 
@@ -31,6 +38,13 @@
         font-size: 1.2rem;
         border: none;
         margin-left: 2rem;
+        outline: none;
+        width: 70%;
+
+        &::placeholder{
+            color: rgba(0, 0, 0, 0.400);
+        }
+
     }
 
     

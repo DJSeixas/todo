@@ -1,51 +1,121 @@
 <template>
-    
-    <div class="lista">
+    <div class="content">
 
-        <ListaItem 
-        v-for="(tarefa,id) in tarefas" 
-        :key="id" 
-        :tarefa="tarefa"
+        <TheInput
+        @salvar="salvarTarefa"
         />
+        
+        <div class="lista">
 
-        <div class="lista__info">
-            <p>{{ tarefas.length }} items left</p>
+            <ul v-if="tarefasFiltradas.length > 0">
+                <ListaItem
+                v-for="(tarefa,id) in tarefasFiltradas" 
+                :key="id" 
+                :tarefa="tarefa"
+                @deletar="deletarTarefa"
+                @concluir="concluirTarefa"
+                />
+            </ul>
 
-            <div class="lista__filtro">
-                <span>All</span>
-                <span>Active</span>
-                <span>Completed</span>
+            <p v-else class="empty">Nenhuma tarefa a fazer</p>
+    
+            <div class="lista__info" :class="{darkMode2: dark}">
+                <p>{{ tarefasFiltradas.length }} items left</p>
+    
+                <div class="lista__filtro">
+                    <!-- <span v-for="(filtro, index) in filtros" :key="index" 
+                    class="lista__filtro--active"
+                    :class="{selected: select}"
+                    @click="filtrarTarefas(filtro)"
+                    >{{ filtro }}</span> -->
+                    <span class="lista__filtro--active" :class="{selected: select1}" @click="filtrarTarefas(filtros[0])">{{ filtros[0] }}</span>
+                    <span class="lista__filtro--active" :class="{selected: select2}" @click="filtrarTarefas(filtros[1])">{{ filtros[1] }}</span>
+                    <span class="lista__filtro--active" :class="{selected: select3}" @click="filtrarTarefas(filtros[2])">{{ filtros[2] }}</span>
+                </div>
+    
+                <p class="lista__info--active" @click="deletarTarefas">Clear Completed</p>
             </div>
-
-            <p>Clear Completed</p>
+        
         </div>
-    
+
+        <p id="text-app" :class="{darkColor2: dark}">Drag and drop to reorder list</p>
+        
+
     </div>
-    
+
 
 
 </template>
 
 <script>
 
-import { mapActions, mapState } from 'vuex';
+import { mapActions, mapGetters, mapState } from 'vuex';
 import ListaItem from './ListaItem.vue';
+import TheInput from './TheInput.vue';
 
 export default {
-    components: { ListaItem },
+    components: { ListaItem, TheInput },
     data(){
         return {
+            filtros: [
+                'All',
+                'Active',
+                'Completed'
+            ],
+            select1: true,
+            select2: false,
+            select3: false,
         }
     },
     computed: {
         ...mapState([
-            'tarefas'
+            'tarefas',
+            'value',
+            'dark'
+        ]),
+        ...mapGetters([
+            'tarefasFiltradas'
         ])
     },
     methods: {
         ...mapActions([
-            'getTarefas'
-        ])
+            'getTarefas',
+            'postTarefa',
+            'deleteTarefa',
+            'concludeTarefa',
+            'deleteTarefas'
+        ]),
+            salvarTarefa(event){
+                this.postTarefa({ tarefa: event.tarefa })
+        },
+            deletarTarefa(tarefa){
+                this.deleteTarefa({ tarefa })
+        },
+            concluirTarefa(tarefa){
+                this.concludeTarefa({ tarefa })
+        },
+            filtrarTarefas(filtro){
+                console.log(filtro)
+                this.$store.commit('CHANGE_VALUE', filtro)
+                if(filtro === 'All'){
+                    this.select2 = false
+                    this.select3 = false
+                    return this.select1 = true
+                }
+                else if(filtro === 'Active'){
+                    this.select1 = false
+                    this.select3 = false
+                    return this.select2 = true
+                }
+                else if(filtro === 'Completed'){
+                    this.select1 = false
+                    this.select2 = false
+                    return this.select3 = true
+                }
+        },
+            deletarTarefas(tarefas){
+                this.deleteTarefas({ tarefas })
+            }
     },
     created(){
         this.getTarefas()

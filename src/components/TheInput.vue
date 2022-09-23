@@ -1,14 +1,16 @@
 <template>
 
-    <div class="input">
-        <form action="#" class="input__form">
+    <div class="input" :class="{darkMode: dark}">
+        <form @submit.prevent class="input__form" :class="{darkMode: dark}">
                     <button class="input__button">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="9"><path fill="none" stroke="#000" stroke-width="2" d="M1 4.304L3.696 7l6-6"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="9"><path fill="none" d="M1 4.304L3.696 7l6-6"/></svg>
                     </button>
                     <input type="text" 
                            class="input__input" 
                            placeholder="Create a new Todo..."
-                           v-model="input"
+                           :class="{darkMode: dark}"
+                           @keyup.enter="salvar()"
+                           v-model="tarefa.title"
                            >
                 </form>
     </div>
@@ -16,8 +18,28 @@
 </template>
 
 <script>
-export default {
+import { mapState } from 'vuex'
 
+export default {
+    data(){
+        return {
+            tarefa: Object.assign({title: '', concluido: false})
+            
+        }
+    },
+    computed: {
+        ...mapState([
+            'dark'
+        ])
+    },  
+    methods: {
+        salvar(){
+            if(this.tarefa.title !== ''){
+                this.$emit('salvar', { tarefa: this.tarefa })
+                this.tarefa = Object.assign({},  {title: '', concluido: false})
+            }
+        }
+    }
 }
 </script>
 

@@ -1,16 +1,15 @@
 <template>
   <div id="app">
-    <TheHeader />
 
-    <div class="content">
+    <div class="app-content" :class="{darkBg: dark}">
+
+      <TheHeader />
   
-      <TheInput />
+        <Lista />
+  
 
-      <Lista />
-
-      <p id="text-app">Drag and drop to reorder list</p>
-      
     </div>
+
 
 
   </div>
@@ -18,15 +17,19 @@
 
 <script>
 import TheHeader from './components/TheHeader.vue'
-import TheInput from './components/TheInput.vue';
 import Lista from './components/Lista.vue';
+import { mapState } from 'vuex';
 
 export default {
   name: 'App',
   components: {
     TheHeader,
-    TheInput,
     Lista
+},
+computed: {
+  ...mapState([
+    'dark'
+  ])
 }
 }
 </script>

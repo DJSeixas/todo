@@ -1,1 +1,6 @@
 export const GET_TAREFAS = 'GET_TAREFAS'
+export const POST_TAREFA = 'POST_TAREFA'
+export const DELETE_TAREFA = 'DELETE_TAREFA'
+export const CONCLUDE_TAREFA = 'CONCLUDE_TAREFA'
+export const CHANGE_VALUE = 'CHANGE_VALUE'
+export const DARK_MODE = 'DARK_MODE'

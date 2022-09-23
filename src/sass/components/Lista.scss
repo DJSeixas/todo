@@ -1,12 +1,50 @@
-
-.lista{
-    border-radius: $b-radius;
-    overflow: hidden;
+.content{
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    flex-direction: column;
     position: absolute;
     z-index: 10;
+
+    margin-top: 12rem;
+
+    @include respond(phone){
+        width: 18rem;
+    }
+
+}
+
+.empty{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     
+    background-color: $color-white;
+    width: 42rem;
+    padding: 1.2rem 2rem;
+    border-bottom: .1rem solid rgba(0, 0, 0, .1);
+
+    @include respond(tab-port){
+        width: 36rem;
+    }
+
+    @include respond(phone){
+        width: 22rem;
+    }
+}
+
+
+.lista{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    border-radius: $b-radius;
+    overflow: hidden;
     
     box-shadow: $box-shadow;
+    margin-top: 3rem;
 
     &__info{
         display: flex;
@@ -17,13 +55,53 @@
         color: rgba(0, 0, 0, 0.350);
         font-weight: 700;
         background-color: $color-white;
-        
+        width: 100%; 
+
+        &--active:hover{
+            cursor: pointer;
+            color: rgba(0, 0, 0, 0.500);
+        }
+
     }
 
     &__filtro{
         display: flex;
         justify-content: space-between;
         flex: 0 0 40%;
+
+        @include respond(phone){
+            position: absolute;
+            justify-content: space-around;
+            border-radius: $b-radius;
+            box-shadow: $box-shadow;
+            padding: .8rem;
+            
+            overflow: hidden;
+            margin: 4rem -2rem;
+            width: 22rem;
+        }
+        
+
+        &--active:hover{
+            cursor: pointer;
+            color: rgba(0, 0, 0, 0.500);
+        }
     }
 
+}
+
+#text-app{
+    color: rgba(0, 0, 0, 0.350);
+    font-weight: 700;
+
+    margin-top: 4rem;
+
+    @include respond(phone){
+        margin-top: 8rem;
+    }
+    
+}
+
+.selected{
+    color: hsl(220, 98%, 61%) !important;
 }
