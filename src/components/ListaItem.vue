@@ -1,6 +1,6 @@
 <template>
     
-    <div class="item" :class="{darkMode: dark}">
+    <div class="item" draggable="true" :class="{darkMode: dark}">
         <button class="item__button--concluir" :class="{concluido: this.tarefa.concluido}" @click="$emit('concluir', tarefa)">
             <svg xmlns="http://www.w3.org/2000/svg" width="11" height="9"><path fill="none" d="M1 4.304L3.696 7l6-6"/></svg>
         </button>

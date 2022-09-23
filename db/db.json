@@ -3,22 +3,32 @@
     {
       "title": "Complete Vue Router Course",
       "concluido": true,
-      "id": 5
+      "id": 1
     },
     {
       "title": "Complete axios Course",
-      "concluido": false,
-      "id": 6
+      "concluido": true,
+      "id": 2
     },
     {
       "title": "Complete Vuex Course",
-      "concluido": false,
-      "id": 7
+      "concluido": true,
+      "id": 3
     },
     {
       "title": "Complete Javascript Course",
+      "concluido": true,
+      "id": 4
+    },
+    {
+      "title": "Complete React Course",
       "concluido": false,
-      "id": 8
+      "id": 5
+    },
+    {
+      "title": "Complete Typescript Course",
+      "concluido": false,
+      "id": 6
     }
   ]
 }
