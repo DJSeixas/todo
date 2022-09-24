@@ -7,27 +7,26 @@
         
         <div class="lista">
 
-            <ul v-if="tarefasFiltradas.length > 0">
-                <ListaItem
-                v-for="(tarefa,id) in tarefasFiltradas" 
-                :key="id" 
-                :tarefa="tarefa"
-                @deletar="deletarTarefa"
-                @concluir="concluirTarefa"
-                />
-            </ul>
+            
+                <ul v-if="tarefasFiltradas.length > 0">
+                    <draggable>
+                        <ListaItem
+                        v-for="(tarefa,id) in tarefasFiltradas" 
+                        :key="id" 
+                        :tarefa="tarefa"
+                        @deletar="deletarTarefa"
+                        @concluir="concluirTarefa"
+                        />
+                    </draggable>
+                </ul>
 
-            <p v-else class="empty">Nenhuma tarefa a fazer</p>
+                <p v-else class="empty">Nenhuma tarefa a fazer</p>
+
     
             <div class="lista__info" :class="{darkMode2: dark}">
                 <p>{{ tarefasFiltradas.length }} items left</p>
     
                 <div class="lista__filtro">
-                    <!-- <span v-for="(filtro, index) in filtros" :key="index" 
-                    class="lista__filtro--active"
-                    :class="{selected: select}"
-                    @click="filtrarTarefas(filtro)"
-                    >{{ filtro }}</span> -->
                     <span class="lista__filtro--active" :class="{selected: select1}" @click="filtrarTarefas(filtros[0])">{{ filtros[0] }}</span>
                     <span class="lista__filtro--active" :class="{selected: select2}" @click="filtrarTarefas(filtros[1])">{{ filtros[1] }}</span>
                     <span class="lista__filtro--active" :class="{selected: select3}" @click="filtrarTarefas(filtros[2])">{{ filtros[2] }}</span>
@@ -50,11 +49,12 @@
 <script>
 
 import { mapActions, mapGetters, mapState } from 'vuex';
+import draggable from 'vuedraggable'
 import ListaItem from './ListaItem.vue';
 import TheInput from './TheInput.vue';
 
 export default {
-    components: { ListaItem, TheInput },
+    components: { ListaItem, TheInput, draggable },
     data(){
         return {
             filtros: [
@@ -95,7 +95,6 @@ export default {
                 this.concludeTarefa({ tarefa })
         },
             filtrarTarefas(filtro){
-                console.log(filtro)
                 this.$store.commit('CHANGE_VALUE', filtro)
                 if(filtro === 'All'){
                     this.select2 = false
@@ -115,6 +114,9 @@ export default {
         },
             deletarTarefas(tarefas){
                 this.deleteTarefas({ tarefas })
+            },
+            changeItem(e){
+                console.log(e)
             }
     },
     created(){
